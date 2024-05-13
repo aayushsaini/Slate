@@ -205,7 +205,7 @@ const HomePage = () => {
           ))}
         </div>
       </section>
-      <section className="mt-20 px-4 sm:px-6">
+      <section className="mt-20 px-4 sm:px-6 pb-[40px]">
         <TitleSection
           title="The Perfect plan for you"
           subheading="Experience all benefits of our platform. Select a plan that suits your needs and take your productivity to a new high!"
@@ -311,6 +311,18 @@ const HomePage = () => {
           ))}
         </div>
       </section>
+      <div className="flex flex-col justify-center items-center py-10 ">
+        <span>Made by Aayush </span>
+        <div className="font-light pt-2 text-sm">
+          <a href="https://www.github.com/aayushsaini" target="_blank">
+            GitHub
+          </a>{" "}
+          &nbsp; | &nbsp;{" "}
+          <a href="https://www.linkedin.com/in/aayush-saini" target="_blank">
+            LinkedIn
+          </a>
+        </div>
+      </div>
     </>
   );
 };
