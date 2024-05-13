@@ -91,8 +91,7 @@ const HomePage = () => {
             flex 
             after:content[''] 
             after:dark:from-brand-dark 
-            after:from-background 
-            after:bg-gradient-to-l 
+            after:from-background
             after:right-0 
             after:bottom-0 
             after:top-0
@@ -102,8 +101,7 @@ const HomePage = () => {
 
             before:content[''] 
             before:dark:from-brand-dark 
-            before:from-background 
-            before:bg-gradient-to-r 
+            before:from-background
             before:left-0
             before:top-0
             before:bottom-0 
