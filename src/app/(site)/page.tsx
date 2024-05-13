@@ -119,8 +119,10 @@ const HomePage = () => {
                   key={client?.alt}
                   className="
                     relative
-                    w-[200px]
-                    mx-5
+                    sm:w-[200px]
+                    xl:w-[300px]
+                    2xl:w-[500px]
+                    mx-10
                     my-20
                     shrink-0
                     flex
