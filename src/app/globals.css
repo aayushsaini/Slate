@@ -31,7 +31,9 @@ body {
     --radius: 0.5rem;
   }
 
-  /* bg set to 249 100% 3.9% */
+  /*  bg set to 249 100% 3.9%
+      primary set to 266 100% 50%
+  */
   .dark {
     --background: 249 100% 0%;
     --foreground: 248 100% 88%;
@@ -39,7 +41,7 @@ body {
     --card-foreground: 210 20% 98%;
     --popover: 224 71.4% 4.1%;
     --popover-foreground: 210 20% 98%;
-    --primary: 266, 100%, 50%;
+    --primary: 260, 100%, 50%;
     --primary-foreground: 210 20% 98%;
     --secondary: 215 27.9% 16.9%;
     --secondary-foreground: 210 20% 98%;
