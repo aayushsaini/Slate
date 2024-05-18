@@ -37,12 +37,14 @@ const LoginPage = () => {
   const onSubmit: SubmitHandler<z.infer<typeof LoginFormSchema>> = async (
     formData
   ) => {
+    // Move to try-catch block in the future
     const { error } = await actionLoginUser(formData);
     if (error) {
       form.reset();
       setSubmitError(error.message);
+    } else {
+      router.replace("/dashboard");
     }
-    router.replace("/dashboard");
   };
 
   return (
