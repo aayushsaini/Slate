@@ -20,6 +20,7 @@ import { LoginFormSchema } from "@/lib/types";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import Loader from "@/components/common/Loader";
+import { actionLoginUser } from "@/lib/server-action/auth-actions";
 
 const LoginPage = () => {
   const router = useRouter();
@@ -35,7 +36,14 @@ const LoginPage = () => {
   const isLoading = form.formState.isSubmitting;
   const onSubmit: SubmitHandler<z.infer<typeof LoginFormSchema>> = async (
     formData
-  ) => {};
+  ) => {
+    const { error } = await actionLoginUser(formData);
+    if (error) {
+      form.reset();
+      setSubmitError(error.message);
+    }
+    router.replace("/dashboard");
+  };
 
   return (
     <Form {...form}>
@@ -84,6 +92,7 @@ const LoginPage = () => {
         {submitError && <FormMessage>{submitError}</FormMessage>}
         <Button
           type="submit"
+          variant="btn-primary"
           className="w-full p-6"
           size="lg"
           disabled={isLoading}
