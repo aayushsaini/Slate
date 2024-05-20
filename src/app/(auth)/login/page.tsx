@@ -1,7 +1,6 @@
 "use client";
 import * as z from "zod";
 import Link from "next/link";
-import Image from "next/image";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import {
@@ -15,12 +14,12 @@ import {
 import { zodResolver } from "@hookform/resolvers/zod";
 import { SubmitHandler, useForm } from "react-hook-form";
 
-import Logo from "../../../../public/appLogo.svg";
 import { LoginFormSchema } from "@/lib/types";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import Loader from "@/components/common/Loader";
 import { actionLoginUser } from "@/lib/server-action/auth-actions";
+import AppLogo from "@/components/common/AppLogo";
 
 const LoginPage = () => {
   const router = useRouter();
@@ -37,7 +36,7 @@ const LoginPage = () => {
   const onSubmit: SubmitHandler<z.infer<typeof LoginFormSchema>> = async (
     formData
   ) => {
-    // Move to try-catch block in the future
+    // Todo: Move to try-catch block in the future
     const { error } = await actionLoginUser(formData);
     if (error) {
       form.reset();
@@ -57,7 +56,7 @@ const LoginPage = () => {
         }}
       >
         <Link href="/" className="w-full flex justify-left items-center">
-          <Image src={Logo} alt="App logo" height={50} width={50} />
+          <AppLogo alt="App logo" height={50} width={50} />
           <span className="font-semibold dark:text-white text-4xl first-letter:ml-2">
             Slate.io
           </span>
@@ -69,7 +68,7 @@ const LoginPage = () => {
           disabled={isLoading}
           control={form.control}
           name="email"
-          render={(field) => (
+          render={({ field }) => (
             <FormItem>
               <FormControl>
                 <Input type="email" placeholder="Email" {...field} />
@@ -82,7 +81,7 @@ const LoginPage = () => {
           disabled={isLoading}
           control={form.control}
           name="password"
-          render={(field) => (
+          render={({ field }) => (
             <FormItem>
               <FormControl>
                 <Input type="password" placeholder="Password" {...field} />
